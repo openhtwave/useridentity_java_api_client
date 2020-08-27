@@ -1,0 +1,102 @@
+openapi: 3.0.1
+info:
+  description: Sample REST API documentation
+  title: useridentity
+  version: 0.0.1
+servers:
+- description: Generated server url
+  url: http://localhost:6969
+paths:
+  /system/healthcheck:
+    get:
+      operationId: healthcheck
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: OK
+      tags:
+      - system-controller
+      x-accepts: '*/*'
+  /login:
+    post:
+      operationId: loginUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: string
+          description: OK
+      tags:
+      - auth-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /register:
+    post:
+      description: Register a new user
+      operationId: registerUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CreateUserResponse'
+          description: successful operation
+      summary: Register user
+      tags:
+      - open
+      x-contentType: application/json
+      x-accepts: '*/*'
+components:
+  schemas:
+    LoginRequest:
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      type: object
+    RegisterRequest:
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      type: object
+    CreateUser:
+      example:
+        id: id
+      properties:
+        id:
+          type: string
+      type: object
+    CreateUserResponse:
+      example:
+        data:
+          id: id
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateUser'
+      type: object
+
