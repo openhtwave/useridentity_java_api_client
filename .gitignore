@@ -1,21 +1,27 @@
-*.class
+# See https://www.dartlang.org/tools/private-files.html
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Files and directories created by pub
+.buildlog
+.packages
+.project
+.pub/
+build/
+**/packages/
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# Files created by dart2js
+# (Most Dart developers will use pub build to compile Dart, use/modify these 
+#  rules if you intend to use dart2js directly
+#  Convention is to use extension '.dart.js' for Dart compiled to Javascript to
+#  differentiate from explicit Javascript files)
+*.dart.js
+*.part.js
+*.js.deps
+*.js.map
+*.info.json
 
-# exclude jar for gradle wrapper
-!gradle/wrapper/*.jar
+# Directory created by dartdoc
+doc/api/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-# build files
-**/target
-target
-.gradle
-build
+# Don't commit pubspec lock file 
+# (Library packages only! Remove pattern if developing an application package)
+pubspec.lock
