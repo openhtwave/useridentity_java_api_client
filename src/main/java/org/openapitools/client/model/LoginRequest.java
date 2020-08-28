@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LoginRequest.JSON_PROPERTY_EMAIL,
   LoginRequest.JSON_PROPERTY_PASSWORD
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-22T17:20:18.769884Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-28T19:45:00.946653Z[UTC]")
 public class LoginRequest {
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
