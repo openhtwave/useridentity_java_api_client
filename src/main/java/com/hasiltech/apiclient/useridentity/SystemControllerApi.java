@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-30T06:38:15.910189Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-30T07:16:41.313461Z[UTC]")
 public class SystemControllerApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;

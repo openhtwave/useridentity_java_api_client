@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   CreateUserResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-30T06:38:15.910189Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-30T07:16:41.313461Z[UTC]")
 public class CreateUserResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private CreateUser data;
