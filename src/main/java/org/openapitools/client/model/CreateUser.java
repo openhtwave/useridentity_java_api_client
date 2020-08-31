@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   CreateUser.JSON_PROPERTY_ID
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T04:47:57.288083Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T04:51:23.955548Z[UTC]")
 public class CreateUser {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
