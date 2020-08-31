@@ -47,7 +47,7 @@ import java.util.stream.Collectors;
  * <p>The setter methods of this class return the current object to facilitate
  * a fluent style of configuration.</p>
  */
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-30T21:31:35.591108Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T01:25:38.523125Z[UTC]")
 public class ApiClient {
 
   private static final Charset UTF_8 = Charset.forName("UTF-8");
