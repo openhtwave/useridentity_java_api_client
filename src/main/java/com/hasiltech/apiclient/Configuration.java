@@ -13,7 +13,7 @@
 
 package com.hasiltech.apiclient;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T02:05:43.471464Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T02:13:49.243500Z[UTC]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 
