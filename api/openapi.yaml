@@ -22,6 +22,7 @@ paths:
       x-accepts: '*/*'
   /login:
     post:
+      description: Login user
       operationId: loginUser
       requestBody:
         content:
@@ -34,10 +35,11 @@ paths:
           content:
             '*/*':
               schema:
-                type: string
-          description: OK
+                $ref: '#/components/schemas/LoginUserResponse'
+          description: successful operation
+      summary: Login user
       tags:
-      - auth-controller
+      - open
       x-contentType: application/json
       x-accepts: '*/*'
   /register:
@@ -55,48 +57,161 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/CreateUserResponse'
+                $ref: '#/components/schemas/RegisterUserResponse'
           description: successful operation
       summary: Register user
       tags:
       - open
       x-contentType: application/json
       x-accepts: '*/*'
+  /users/{id}:
+    post:
+      operationId: getUser
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+          description: OK
+      tags:
+      - user-controller
+      x-accepts: '*/*'
 components:
   schemas:
     LoginRequest:
       example:
         password: password
-        email: email
+        phoneNumber: phoneNumber
+        username: username
       properties:
-        email:
+        phoneNumber:
+          type: string
+        username:
           type: string
         password:
           type: string
+      required:
+      - password
+      type: object
+    LoginUser:
+      example:
+        id: id
+        accessToken: accessToken
+      properties:
+        id:
+          type: string
+        accessToken:
+          type: string
+      type: object
+    LoginUserResponse:
+      example:
+        data:
+          id: id
+          accessToken: accessToken
+      properties:
+        data:
+          $ref: '#/components/schemas/LoginUser'
       type: object
     RegisterRequest:
       example:
         password: password
-        email: email
+        phoneNumber: phoneNumber
       properties:
-        email:
+        phoneNumber:
           type: string
         password:
+          maxLength: 16
+          minLength: 8
           type: string
+      required:
+      - password
+      - phoneNumber
       type: object
     CreateUser:
       example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        phoneNumber: phoneNumber
+        isValidated: true
         id: id
+        accessToken: accessToken
+        username: username
+        updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           type: string
+        username:
+          type: string
+        phoneNumber:
+          type: string
+        isValidated:
+          type: boolean
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        accessToken:
+          type: string
       type: object
-    CreateUserResponse:
+    RegisterUserResponse:
       example:
         data:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          phoneNumber: phoneNumber
+          isValidated: true
           id: id
+          accessToken: accessToken
+          username: username
+          updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         data:
           $ref: '#/components/schemas/CreateUser'
+      type: object
+    User:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        phoneNumber: phoneNumber
+        isValidated: true
+        id: id
+        username: username
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        phoneNumber:
+          type: string
+        isValidated:
+          type: boolean
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    UserResponse:
+      example:
+        data:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          phoneNumber: phoneNumber
+          isValidated: true
+          id: id
+          username: username
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
       type: object
 

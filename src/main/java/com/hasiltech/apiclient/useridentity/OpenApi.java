@@ -16,8 +16,10 @@ import com.hasiltech.apiclient.ApiClient;
 import com.hasiltech.apiclient.ApiException;
 import com.hasiltech.apiclient.Pair;
 
-import org.openapitools.client.model.CreateUserResponse;
+import org.openapitools.client.model.LoginRequest;
+import org.openapitools.client.model.LoginUserResponse;
 import org.openapitools.client.model.RegisterRequest;
+import org.openapitools.client.model.RegisterUserResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T19:47:45.125338Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:36:35.740280Z[UTC]")
 public class OpenApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -60,13 +62,65 @@ public class OpenApi {
   }
 
   /**
+   * Login user
+   * Login user
+   * @param loginRequest  (required)
+   * @return LoginUserResponse
+   * @throws ApiException if fails to make API call
+   */
+  public LoginUserResponse loginUser (LoginRequest loginRequest) throws ApiException {
+    // verify the required parameter 'loginRequest' is set
+    if (loginRequest == null) {
+        throw new ApiException(400, "Missing the required parameter 'loginRequest' when calling loginUser");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/login";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(loginRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+      if (memberVarReadTimeout != null) {
+        localVarRequestBuilder.timeout(memberVarReadTimeout);
+      }
+      if (memberVarInterceptor != null) {
+        memberVarInterceptor.accept(localVarRequestBuilder);
+      }
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+      localVarRequestBuilder.build(),
+      HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }          
+      if (localVarResponse.statusCode()/ 100 != 2) {
+          throw new ApiException(localVarResponse.statusCode(),
+              "loginUser call received non-success response",
+              localVarResponse.headers(),
+              localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
+      }
+      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<LoginUserResponse>() {});
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+  /**
    * Register user
    * Register a new user
    * @param registerRequest  (required)
-   * @return CreateUserResponse
+   * @return RegisterUserResponse
    * @throws ApiException if fails to make API call
    */
-  public CreateUserResponse registerUser (RegisterRequest registerRequest) throws ApiException {
+  public RegisterUserResponse registerUser (RegisterRequest registerRequest) throws ApiException {
     // verify the required parameter 'registerRequest' is set
     if (registerRequest == null) {
         throw new ApiException(400, "Missing the required parameter 'registerRequest' when calling registerUser");
@@ -102,7 +156,7 @@ public class OpenApi {
               localVarResponse.headers(),
               localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
       }
-      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateUserResponse>() {});
+      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RegisterUserResponse>() {});
     } catch (IOException e) {
       throw new ApiException(e);
     }

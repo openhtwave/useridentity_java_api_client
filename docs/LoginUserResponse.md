@@ -1,13 +1,12 @@
 
 
-# RegisterRequest
+# LoginUserResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**phoneNumber** | **String** |  | 
-**password** | **String** |  | 
+**data** | [**LoginUser**](LoginUser.md) |  |  [optional]
 
 
 

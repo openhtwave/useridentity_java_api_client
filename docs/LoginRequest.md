@@ -6,8 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **String** |  |  [optional]
-**password** | **String** |  |  [optional]
+**phoneNumber** | **String** |  |  [optional]
+**username** | **String** |  |  [optional]
+**password** | **String** |  | 
 
 
 

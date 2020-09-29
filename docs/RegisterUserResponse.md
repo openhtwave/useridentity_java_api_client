@@ -1,13 +1,12 @@
 
 
-# RegisterRequest
+# RegisterUserResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**phoneNumber** | **String** |  | 
-**password** | **String** |  | 
+**data** | [**CreateUser**](CreateUser.md) |  |  [optional]
 
 
 

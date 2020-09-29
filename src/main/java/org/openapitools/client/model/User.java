@@ -25,19 +25,18 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * CreateUser
+ * User
  */
 @JsonPropertyOrder({
-  CreateUser.JSON_PROPERTY_ID,
-  CreateUser.JSON_PROPERTY_USERNAME,
-  CreateUser.JSON_PROPERTY_PHONE_NUMBER,
-  CreateUser.JSON_PROPERTY_IS_VALIDATED,
-  CreateUser.JSON_PROPERTY_CREATED_AT,
-  CreateUser.JSON_PROPERTY_UPDATED_AT,
-  CreateUser.JSON_PROPERTY_ACCESS_TOKEN
+  User.JSON_PROPERTY_ID,
+  User.JSON_PROPERTY_USERNAME,
+  User.JSON_PROPERTY_PHONE_NUMBER,
+  User.JSON_PROPERTY_IS_VALIDATED,
+  User.JSON_PROPERTY_CREATED_AT,
+  User.JSON_PROPERTY_UPDATED_AT
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:36:35.740280Z[UTC]")
-public class CreateUser {
+public class User {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -56,11 +55,8 @@ public class CreateUser {
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private OffsetDateTime updatedAt;
 
-  public static final String JSON_PROPERTY_ACCESS_TOKEN = "accessToken";
-  private String accessToken;
 
-
-  public CreateUser id(String id) {
+  public User id(String id) {
     
     this.id = id;
     return this;
@@ -85,7 +81,7 @@ public class CreateUser {
   }
 
 
-  public CreateUser username(String username) {
+  public User username(String username) {
     
     this.username = username;
     return this;
@@ -110,7 +106,7 @@ public class CreateUser {
   }
 
 
-  public CreateUser phoneNumber(String phoneNumber) {
+  public User phoneNumber(String phoneNumber) {
     
     this.phoneNumber = phoneNumber;
     return this;
@@ -135,7 +131,7 @@ public class CreateUser {
   }
 
 
-  public CreateUser isValidated(Boolean isValidated) {
+  public User isValidated(Boolean isValidated) {
     
     this.isValidated = isValidated;
     return this;
@@ -160,7 +156,7 @@ public class CreateUser {
   }
 
 
-  public CreateUser createdAt(OffsetDateTime createdAt) {
+  public User createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
     return this;
@@ -185,7 +181,7 @@ public class CreateUser {
   }
 
 
-  public CreateUser updatedAt(OffsetDateTime updatedAt) {
+  public User updatedAt(OffsetDateTime updatedAt) {
     
     this.updatedAt = updatedAt;
     return this;
@@ -210,31 +206,6 @@ public class CreateUser {
   }
 
 
-  public CreateUser accessToken(String accessToken) {
-    
-    this.accessToken = accessToken;
-    return this;
-  }
-
-   /**
-   * Get accessToken
-   * @return accessToken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getAccessToken() {
-    return accessToken;
-  }
-
-
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -243,33 +214,31 @@ public class CreateUser {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateUser createUser = (CreateUser) o;
-    return Objects.equals(this.id, createUser.id) &&
-        Objects.equals(this.username, createUser.username) &&
-        Objects.equals(this.phoneNumber, createUser.phoneNumber) &&
-        Objects.equals(this.isValidated, createUser.isValidated) &&
-        Objects.equals(this.createdAt, createUser.createdAt) &&
-        Objects.equals(this.updatedAt, createUser.updatedAt) &&
-        Objects.equals(this.accessToken, createUser.accessToken);
+    User user = (User) o;
+    return Objects.equals(this.id, user.id) &&
+        Objects.equals(this.username, user.username) &&
+        Objects.equals(this.phoneNumber, user.phoneNumber) &&
+        Objects.equals(this.isValidated, user.isValidated) &&
+        Objects.equals(this.createdAt, user.createdAt) &&
+        Objects.equals(this.updatedAt, user.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username, phoneNumber, isValidated, createdAt, updatedAt, accessToken);
+    return Objects.hash(id, username, phoneNumber, isValidated, createdAt, updatedAt);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateUser {\n");
+    sb.append("class User {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    isValidated: ").append(toIndentedString(isValidated)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

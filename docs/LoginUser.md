@@ -1,13 +1,13 @@
 
 
-# RegisterRequest
+# LoginUser
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**phoneNumber** | **String** |  | 
-**password** | **String** |  | 
+**id** | **String** |  |  [optional]
+**accessToken** | **String** |  |  [optional]
 
 
 

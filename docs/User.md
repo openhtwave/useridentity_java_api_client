@@ -1,6 +1,6 @@
 
 
-# CreateUser
+# User
 
 ## Properties
 
@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **isValidated** | **Boolean** |  |  [optional]
 **createdAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **updatedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**accessToken** | **String** |  |  [optional]
 
 
 

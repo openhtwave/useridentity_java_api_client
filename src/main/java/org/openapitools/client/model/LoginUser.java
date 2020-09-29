@@ -24,66 +24,68 @@ import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * RegisterRequest
+ * LoginUser
  */
 @JsonPropertyOrder({
-  RegisterRequest.JSON_PROPERTY_PHONE_NUMBER,
-  RegisterRequest.JSON_PROPERTY_PASSWORD
+  LoginUser.JSON_PROPERTY_ID,
+  LoginUser.JSON_PROPERTY_ACCESS_TOKEN
 })
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:36:35.740280Z[UTC]")
-public class RegisterRequest {
-  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
-  private String phoneNumber;
+public class LoginUser {
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_PASSWORD = "password";
-  private String password;
+  public static final String JSON_PROPERTY_ACCESS_TOKEN = "accessToken";
+  private String accessToken;
 
 
-  public RegisterRequest phoneNumber(String phoneNumber) {
+  public LoginUser id(String id) {
     
-    this.phoneNumber = phoneNumber;
+    this.id = id;
     return this;
   }
 
    /**
-   * Get phoneNumber
-   * @return phoneNumber
+   * Get id
+   * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getPhoneNumber() {
-    return phoneNumber;
+  public String getId() {
+    return id;
   }
 
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public RegisterRequest password(String password) {
+  public LoginUser accessToken(String accessToken) {
     
-    this.password = password;
+    this.accessToken = accessToken;
     return this;
   }
 
    /**
-   * Get password
-   * @return password
+   * Get accessToken
+   * @return accessToken
   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_PASSWORD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getPassword() {
-    return password;
+  public String getAccessToken() {
+    return accessToken;
   }
 
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setAccessToken(String accessToken) {
+    this.accessToken = accessToken;
   }
 
 
@@ -95,23 +97,23 @@ public class RegisterRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RegisterRequest registerRequest = (RegisterRequest) o;
-    return Objects.equals(this.phoneNumber, registerRequest.phoneNumber) &&
-        Objects.equals(this.password, registerRequest.password);
+    LoginUser loginUser = (LoginUser) o;
+    return Objects.equals(this.id, loginUser.id) &&
+        Objects.equals(this.accessToken, loginUser.accessToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, password);
+    return Objects.hash(id, accessToken);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RegisterRequest {\n");
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("class LoginUser {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

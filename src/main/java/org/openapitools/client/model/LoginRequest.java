@@ -27,40 +27,69 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * LoginRequest
  */
 @JsonPropertyOrder({
-  LoginRequest.JSON_PROPERTY_EMAIL,
+  LoginRequest.JSON_PROPERTY_PHONE_NUMBER,
+  LoginRequest.JSON_PROPERTY_USERNAME,
   LoginRequest.JSON_PROPERTY_PASSWORD
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T19:47:45.125338Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:36:35.740280Z[UTC]")
 public class LoginRequest {
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  private String email;
+  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
+  private String phoneNumber;
+
+  public static final String JSON_PROPERTY_USERNAME = "username";
+  private String username;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
 
-  public LoginRequest email(String email) {
+  public LoginRequest phoneNumber(String phoneNumber) {
     
-    this.email = email;
+    this.phoneNumber = phoneNumber;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
+   * Get phoneNumber
+   * @return phoneNumber
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getEmail() {
-    return email;
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+
+  public LoginRequest username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
   }
 
 
@@ -74,10 +103,9 @@ public class LoginRequest {
    * Get password
    * @return password
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPassword() {
     return password;
@@ -98,13 +126,14 @@ public class LoginRequest {
       return false;
     }
     LoginRequest loginRequest = (LoginRequest) o;
-    return Objects.equals(this.email, loginRequest.email) &&
+    return Objects.equals(this.phoneNumber, loginRequest.phoneNumber) &&
+        Objects.equals(this.username, loginRequest.username) &&
         Objects.equals(this.password, loginRequest.password);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, password);
+    return Objects.hash(phoneNumber, username, password);
   }
 
 
@@ -112,7 +141,8 @@ public class LoginRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoginRequest {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
     return sb.toString();

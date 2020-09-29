@@ -16,6 +16,7 @@ import com.hasiltech.apiclient.ApiClient;
 import com.hasiltech.apiclient.ApiException;
 import com.hasiltech.apiclient.Pair;
 
+import org.openapitools.client.model.UserResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,7 +37,7 @@ import java.util.Map;
 
 
 @javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:36:35.740280Z[UTC]")
-public class SystemControllerApi {
+public class UserControllerApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
   private final String memberVarBaseUri;
@@ -44,11 +45,11 @@ public class SystemControllerApi {
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   
-  public SystemControllerApi() {
+  public UserControllerApi() {
     this(new ApiClient());
   }
 
-  public SystemControllerApi(ApiClient apiClient) {
+  public UserControllerApi(ApiClient apiClient) {
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -60,21 +61,27 @@ public class SystemControllerApi {
   /**
    * 
    * 
-   * @return String
+   * @param id  (required)
+   * @return UserResponse
    * @throws ApiException if fails to make API call
    */
-  public String healthcheck () throws ApiException {
+  public UserResponse getUser (String id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+        throw new ApiException(400, "Missing the required parameter 'id' when calling getUser");
+    }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/system/healthcheck";
+    String localVarPath = "/users/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 
     try {
-      localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
       if (memberVarReadTimeout != null) {
         localVarRequestBuilder.timeout(memberVarReadTimeout);
       }
@@ -89,11 +96,11 @@ public class SystemControllerApi {
       }          
       if (localVarResponse.statusCode()/ 100 != 2) {
           throw new ApiException(localVarResponse.statusCode(),
-              "healthcheck call received non-success response",
+              "getUser call received non-success response",
               localVarResponse.headers(),
               localVarResponse.body() == null ? null : new String(localVarResponse.body().readAllBytes()));
       }
-      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<String>() {});
+      return memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UserResponse>() {});
     } catch (IOException e) {
       throw new ApiException(e);
     }
