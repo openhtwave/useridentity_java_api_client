@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  description: Sample REST API documentation
+  description: useridentity_descripton
   title: useridentity
   version: 0.0.1
 servers:
@@ -20,27 +20,26 @@ paths:
       tags:
       - system-controller
       x-accepts: '*/*'
-  /register:
+  /users/{id}:
     post:
-      description: Register a new user
-      operationId: registerUser
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RegisterRequest'
+      operationId: getUser
+      parameters:
+      - explode: false
+        in: path
+        name: id
         required: true
+        schema:
+          type: string
+        style: simple
       responses:
-        "201":
+        "200":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/RegisterUserResponse'
-          description: successful operation
-      summary: Register user
+                $ref: '#/components/schemas/UserResponse'
+          description: OK
       tags:
-      - open
-      x-contentType: application/json
+      - user-controller
       x-accepts: '*/*'
   /login:
     post:
@@ -64,29 +63,101 @@ paths:
       - open
       x-contentType: application/json
       x-accepts: '*/*'
-  /users/{id}:
+  /register:
     post:
-      operationId: getUser
-      parameters:
-      - explode: false
-        in: path
-        name: id
+      description: Register a new user
+      operationId: registerUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
         required: true
-        schema:
-          type: string
-        style: simple
       responses:
-        "200":
+        "201":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/UserResponse'
-          description: OK
+                $ref: '#/components/schemas/RegisterUserResponse'
+          description: successful operation
+      summary: Register user
       tags:
-      - user-controller
+      - open
+      x-contentType: application/json
       x-accepts: '*/*'
 components:
   schemas:
+    User:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        phoneNumber: phoneNumber
+        isValidated: true
+        id: id
+        username: username
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        phoneNumber:
+          type: string
+        isValidated:
+          type: boolean
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    UserResponse:
+      example:
+        data:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          phoneNumber: phoneNumber
+          isValidated: true
+          id: id
+          username: username
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
+      type: object
+    LoginRequest:
+      example:
+        password: password
+        phoneNumber: phoneNumber
+        username: username
+      properties:
+        phoneNumber:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+      required:
+      - password
+      type: object
+    LoginUser:
+      example:
+        id: id
+        accessToken: accessToken
+      properties:
+        id:
+          type: string
+        accessToken:
+          type: string
+      type: object
+    LoginUserResponse:
+      example:
+        data:
+          id: id
+          accessToken: accessToken
+      properties:
+        data:
+          $ref: '#/components/schemas/LoginUser'
+      type: object
     RegisterRequest:
       example:
         password: password
@@ -142,76 +213,5 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/CreateUser'
-      type: object
-    LoginRequest:
-      example:
-        password: password
-        phoneNumber: phoneNumber
-        username: username
-      properties:
-        phoneNumber:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-      required:
-      - password
-      type: object
-    LoginUser:
-      example:
-        id: id
-        accessToken: accessToken
-      properties:
-        id:
-          type: string
-        accessToken:
-          type: string
-      type: object
-    LoginUserResponse:
-      example:
-        data:
-          id: id
-          accessToken: accessToken
-      properties:
-        data:
-          $ref: '#/components/schemas/LoginUser'
-      type: object
-    User:
-      example:
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        phoneNumber: phoneNumber
-        isValidated: true
-        id: id
-        username: username
-        updatedAt: 2000-01-23T04:56:07.000+00:00
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        phoneNumber:
-          type: string
-        isValidated:
-          type: boolean
-        createdAt:
-          format: date-time
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      type: object
-    UserResponse:
-      example:
-        data:
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          phoneNumber: phoneNumber
-          isValidated: true
-          id: id
-          username: username
-          updatedAt: 2000-01-23T04:56:07.000+00:00
-      properties:
-        data:
-          $ref: '#/components/schemas/User'
       type: object
 

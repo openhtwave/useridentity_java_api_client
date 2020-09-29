@@ -1,6 +1,6 @@
 /*
  * useridentity
- * Sample REST API documentation
+ * useridentity_descripton
  *
  * The version of the OpenAPI document: 0.0.1
  * 
@@ -15,7 +15,7 @@ package com.hasiltech.apiclient;
 
 import java.net.http.HttpHeaders;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:40:43.096886Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T20:32:32.866350Z[UTC]")
 public class ApiException extends Exception {
     private int code = 0;
     private HttpHeaders responseHeaders = null;

@@ -1,6 +1,6 @@
 /*
  * useridentity
- * Sample REST API documentation
+ * useridentity_descripton
  *
  * The version of the OpenAPI document: 0.0.1
  * 
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   RegisterUserResponse.JSON_PROPERTY_DATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:40:43.096886Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T20:32:32.866350Z[UTC]")
 public class RegisterUserResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private CreateUser data;

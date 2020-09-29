@@ -1,6 +1,6 @@
 /*
  * useridentity
- * Sample REST API documentation
+ * useridentity_descripton
  *
  * The version of the OpenAPI document: 0.0.1
  * 
@@ -13,7 +13,7 @@
 
 package com.hasiltech.apiclient;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T19:40:43.096886Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T20:32:32.866350Z[UTC]")
 public class Pair {
     private String name = "";
     private String value = "";
