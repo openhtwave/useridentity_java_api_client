@@ -20,28 +20,6 @@ paths:
       tags:
       - system-controller
       x-accepts: '*/*'
-  /login:
-    post:
-      description: Login user
-      operationId: loginUser
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LoginRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/LoginUserResponse'
-          description: successful operation
-      summary: Login user
-      tags:
-      - open
-      x-contentType: application/json
-      x-accepts: '*/*'
   /register:
     post:
       description: Register a new user
@@ -60,6 +38,28 @@ paths:
                 $ref: '#/components/schemas/RegisterUserResponse'
           description: successful operation
       summary: Register user
+      tags:
+      - open
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /login:
+    post:
+      description: Login user
+      operationId: loginUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LoginUserResponse'
+          description: successful operation
+      summary: Login user
       tags:
       - open
       x-contentType: application/json
@@ -87,40 +87,6 @@ paths:
       x-accepts: '*/*'
 components:
   schemas:
-    LoginRequest:
-      example:
-        password: password
-        phoneNumber: phoneNumber
-        username: username
-      properties:
-        phoneNumber:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-      required:
-      - password
-      type: object
-    LoginUser:
-      example:
-        id: id
-        accessToken: accessToken
-      properties:
-        id:
-          type: string
-        accessToken:
-          type: string
-      type: object
-    LoginUserResponse:
-      example:
-        data:
-          id: id
-          accessToken: accessToken
-      properties:
-        data:
-          $ref: '#/components/schemas/LoginUser'
-      type: object
     RegisterRequest:
       example:
         password: password
@@ -176,6 +142,40 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/CreateUser'
+      type: object
+    LoginRequest:
+      example:
+        password: password
+        phoneNumber: phoneNumber
+        username: username
+      properties:
+        phoneNumber:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+      required:
+      - password
+      type: object
+    LoginUser:
+      example:
+        id: id
+        accessToken: accessToken
+      properties:
+        id:
+          type: string
+        accessToken:
+          type: string
+      type: object
+    LoginUserResponse:
+      example:
+        data:
+          id: id
+          accessToken: accessToken
+      properties:
+        data:
+          $ref: '#/components/schemas/LoginUser'
       type: object
     User:
       example:
