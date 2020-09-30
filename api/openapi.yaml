@@ -41,6 +41,34 @@ paths:
       tags:
       - user-controller
       x-accepts: '*/*'
+  /register:
+    post:
+      description: Register a new user
+      operationId: registerUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RegisterUserResponse'
+          description: successful operation
+        default:
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: failed operation
+      summary: Register user
+      tags:
+      - auth
+      x-contentType: application/json
+      x-accepts: '*/*'
   /login:
     post:
       description: Login user
@@ -60,29 +88,7 @@ paths:
           description: successful operation
       summary: Login user
       tags:
-      - open
-      x-contentType: application/json
-      x-accepts: '*/*'
-  /register:
-    post:
-      description: Register a new user
-      operationId: registerUser
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RegisterRequest'
-        required: true
-      responses:
-        "201":
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/RegisterUserResponse'
-          description: successful operation
-      summary: Register user
-      tags:
-      - open
+      - auth
       x-contentType: application/json
       x-accepts: '*/*'
 components:
@@ -123,40 +129,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/User'
-      type: object
-    LoginRequest:
-      example:
-        password: password
-        phoneNumber: phoneNumber
-        username: username
-      properties:
-        phoneNumber:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-      required:
-      - password
-      type: object
-    LoginUser:
-      example:
-        id: id
-        accessToken: accessToken
-      properties:
-        id:
-          type: string
-        accessToken:
-          type: string
-      type: object
-    LoginUserResponse:
-      example:
-        data:
-          id: id
-          accessToken: accessToken
-      properties:
-        data:
-          $ref: '#/components/schemas/LoginUser'
       type: object
     RegisterRequest:
       example:
@@ -213,5 +185,41 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/CreateUser'
+      type: object
+    ErrorResponse:
+      type: object
+    LoginRequest:
+      example:
+        password: password
+        phoneNumber: phoneNumber
+        username: username
+      properties:
+        phoneNumber:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+      required:
+      - password
+      type: object
+    LoginUser:
+      example:
+        id: id
+        accessToken: accessToken
+      properties:
+        id:
+          type: string
+        accessToken:
+          type: string
+      type: object
+    LoginUserResponse:
+      example:
+        data:
+          id: id
+          accessToken: accessToken
+      properties:
+        data:
+          $ref: '#/components/schemas/LoginUser'
       type: object
 

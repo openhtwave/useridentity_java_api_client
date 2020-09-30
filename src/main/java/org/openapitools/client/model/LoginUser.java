@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LoginUser.JSON_PROPERTY_ID,
   LoginUser.JSON_PROPERTY_ACCESS_TOKEN
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-29T20:32:32.866350Z[UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-30T02:53:07.889707Z[UTC]")
 public class LoginUser {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
